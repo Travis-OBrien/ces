@@ -1,6 +1,6 @@
 ;;;; ces.lisp
 
-(in-package #:ces)
+(in-package :ces)
 
 ;;; "ces" goes here. Hacks and glory await!
 

@@ -1,11 +1,11 @@
 ;;;; ces.asd
 
-(asdf:defsystem #:ces
+(asdf:defsystem :ces
   :description "Describe ces here"
   :author "Your Name <your.name@example.com>"
   :license "Specify license here"
   
-  :depends-on (#:utilities)
+  :depends-on (:utilities)
   :serial t
   :components ((:file "package")
                (:file "ces")
