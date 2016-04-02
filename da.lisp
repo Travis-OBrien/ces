@@ -2,9 +2,7 @@
 ;;CES system based on 'Direct Access' design.
 
 (in-package :ces/da)
-;(in-package #:utilities)
-;(print "kek")
-;(defclass kek ()())
+
 (def-class scene
     :slots ((window        nil)
 	    (running?      t)
@@ -17,15 +15,9 @@
 				     4 (make-array 1 :adjustable t :fill-pointer 0)
 				     5 (make-array 1 :adjustable t :fill-pointer 0)))
 	    (asset-manager  nil)
-
 	    (input  nil)
 	    (update nil)
-	    (render nil)
-	    
-	    ;TESTING BELOW!
-	    (texture nil)
-	    (ani-obj nil)
-	    ))
+	    (render nil)))
 
 (defun attach-systems
     (scene &rest system/s)
@@ -48,13 +40,12 @@
      do (setf (:entities scene) (delete e (:entities scene)))))
 
 (defun update
-    (scene)
+    (scene);(scene ces/da:scene)
   (loop for system across (:systems scene)
      do (loop for entity across (:entities scene) do
-	     (eval `(,system ,entity)))))
-
-
-
-
+	     (progn
+	       (print system)
+	       (print entity)
+	       (eval `(,system ,entity ,scene))))))
 
 (export-all-symbols-except nil)

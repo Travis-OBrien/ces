@@ -9,7 +9,7 @@
     (name class args &rest body)
   `(progn
      (def-method ,name ,class ,args ,@body)
-     (def-method ,name 'entity ())))
+     (def-method ,name entity ((scene ces/da:scene)))))
 
 (def-spel def-entity
     (name &key
