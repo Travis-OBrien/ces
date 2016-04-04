@@ -10,6 +10,11 @@
   :components ((:file "package")
                (:file "ces")
 	       (:file "da")
+	       
 	       ;base-entity
-	       (:file "entity/entity")))
+	       (:file "entity/entity")
+
+	       ;reusable components
+	       (:file "component/animation")
+	       ))
 
