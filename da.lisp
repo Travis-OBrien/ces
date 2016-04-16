@@ -7,15 +7,15 @@
     :slots ((window        nil)
 	    (running?      t)
 	    (renderer      nil)
-	    (systems       (make-array 1 :adjustable t :fill-pointer 0))
-	    (entities      (make-array 1 :adjustable t :fill-pointer 0))
-	    (render-order  (make-vector 1
-					(make-vector 1)
-					(make-vector 1)
-					(make-vector 1)
-					(make-vector 1)
-					(make-vector 1)))
+	    (systems       (make-vector))
+	    (entities      (make-vector))
+	    (render-order  (make-vector (make-vector)
+					(make-vector)
+					(make-vector)
+					(make-vector)
+					(make-vector)))
 	    (asset-manager  nil)
+	    (event-manager  nil)
 	    (input  nil)
 	    (update nil)
 	    (render nil)))
@@ -45,8 +45,12 @@
   (loop for system across (:systems scene)
      do (loop for entity across (:entities scene) do
 	     (progn
-	       (print system)
-	       (print entity)
-	       (eval `(,system ,entity ,scene))))))
+	       ;;(print system)
+	       ;;(print entity)
 
-(export-all-symbols-except nil)
+	       ;;using this eval setup, we were able to bypass 'funcall'
+	       ;;(eval `(,system ,entity ,scene))
+	       
+	       (funcall system entity scene)))))
+
+;(export-all-symbols-except nil)
