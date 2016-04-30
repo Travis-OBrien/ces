@@ -1,8 +1,10 @@
 (in-package :ces/entity)
 
 ;;an empty object in which all entities will implicitly extend from.
-(def-class entity :slots ((valid t)
+(def-class entity :slots ((valid? t)
+			  (render-order nil)
 			  ;;(unique-tag (gensym))
+			  (tag nil)
 			  ))
 
 (def-spel def-system
@@ -26,4 +28,8 @@
        :with ,(append with '(entity))
        ;;:dependencies ,dependencies
        ;;:super-args ,super-args
-       ) )
+       ))
+
+(defmethod :mem-management
+    ((entity ces/entity::entity))
+  t)

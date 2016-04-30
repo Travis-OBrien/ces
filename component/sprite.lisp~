@@ -1,0 +1,8 @@
+(in-package :ces/component)
+
+(def-class sprite
+    :slots ((current-frame nil)))
+
+(ces/entity::def-system :sprite
+    sprite scene
+    (:frame sprite))

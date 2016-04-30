@@ -16,5 +16,9 @@
 
 	       ;reusable components
 	       (:file "component/animation")
+	       (:file "component/sprite")
+	       (:file "component/render")
+	       (:file "component/collider")
+	       (:file "component/physics")
 	       ))
 
