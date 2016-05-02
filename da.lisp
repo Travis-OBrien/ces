@@ -23,8 +23,7 @@
 	    ;;quick access variables will be stored here
 	    (direct-reference (make-hash-table))
 	    ;;TODO;;quad-tree is a simple vector storing entities with colliders
-	    (quad-tree (make-vector))
-	    ))
+	    (quadtree (make-vector))))
 
 (defun attach-systems
     (scene &rest system/s)
